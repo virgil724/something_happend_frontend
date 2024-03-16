@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+  @apply bg-slate-100;
+}
+.bubble-menu {
+  @apply px-2 border-2 border-gray-300;
+}
+.bubble-menu.is-active {
+  @apply bg-cyan-950;
+}
+
+html,
+body,
+#background {
+  width: 100vw;
+  @apply bg-gray-800;
+}
+[class*="!border-red"] {
+  @apply border-red-500 border-2;
+}
