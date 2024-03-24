@@ -6,11 +6,7 @@
     <template #content>
       <!-- {{ data }} -->
 
-      <Report
-        v-for="report in reportData"
-        :date="report.created"
-        :report="report"
-      />
+      <NuxtPage />
     </template>
   </NuxtLayout>
 </template>
@@ -21,9 +17,9 @@ definePageMeta({
 });
 const { data: groupData } = await useAuthFetch("/v1/managegroup/");
 
-
-const { data: reportData } = await useAuthFetch("/v1/report/");
-// useAuthFetch("/v1/report/manage/");
+definePageMeta({
+  middleware: ["auth"],
+});
 </script>
 
 <style></style>

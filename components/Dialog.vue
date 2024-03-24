@@ -23,7 +23,7 @@
           &times;
         </button>
       </div>
-      <slot name="DialogContent">
+      <slot name="DialogContent" :onClick="DialogBtn">
         <p class="mt-4 text-black">
           This is the content of the dialog. It appears when you click the "Open
           Dialog" button.

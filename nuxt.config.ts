@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     transpile: ['vuetify'],
   },
 
-  modules: ['@nuxtjs/tailwindcss', "@vueuse/nuxt", (_options, nuxt) => {
+  modules: ['nuxt-lodash','@nuxtjs/tailwindcss', "@vueuse/nuxt", (_options, nuxt) => {
     nuxt.hooks.hook('vite:extendConfig', (config) => {
       // @ts-expect-error
       config.plugins.push(vuetify({ autoImport: true }))

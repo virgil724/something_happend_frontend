@@ -24,7 +24,7 @@ const delParagraph = (section) => {
 };
 
 const uploadReport = () => {
-  $fetch("/v1/report/", {
+  authfetch("/v1/report/", {
     method: "POST",
     headers: getToken() ? { Authorization: `Bearer ${getToken()}` } : null,
     body: { body: { ...report } },

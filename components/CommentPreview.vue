@@ -12,8 +12,8 @@
 
 <script setup>
 const { reportId } = defineProps(["report-id"]);
-const { data, pending, error, refresh } = await useFetch(
-  `v1/comment/report/${reportId}/`
+const { data, pending, error, refresh } = await useAuthFetch(
+  `/v1/comment/report/${reportId}/`
 );
 defineExpose({refresh});
 </script>
