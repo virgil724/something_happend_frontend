@@ -9,26 +9,31 @@
             id="listButton"
             class="bg-gray-700 px-3 py-2 rounded"
           >
-            List
+            列表
           </NuxtLink>
           <NuxtLink
             to="/WriteReport"
             id="writeReportButton"
             class="bg-gray-700 px-3 py-2 rounded"
           >
-            WriteReport
+            撰寫報告
           </NuxtLink>
           <NuxtLink
+            v-if="is_admin"
             to="/Admin"
             id="adminButton"
             class="bg-gray-700 px-3 py-2 rounded"
           >
-            Admin
+            管理
           </NuxtLink>
         </div>
         <div class="flex space-x-4">
-          <button id="logoutButton" class="bg-red-600 px-3 py-2 mx-2 rounded">
-            Logout
+          <button
+            @click="HandleLogout"
+            id="logoutButton"
+            class="bg-red-600 px-3 py-2 mx-2 rounded"
+          >
+            登出
           </button>
         </div>
       </nav>
@@ -46,3 +51,19 @@
     </div>
   </body>
 </template>
+<script setup>
+import { useJwt } from "@vueuse/integrations/useJwt";
+
+const token = useSessionStorage("access_token", "");
+const { payload } = useJwt(token.value);
+
+const is_admin = computed(() => payload.value.admin);
+
+const HandleLogout = () => {
+  const token = useSessionStorage("access_token", "");
+  const refreshToken = useLocalStorage("refresh_token", "");
+  token.value = "";
+  refreshToken.value = "";
+  navigateTo("/Auth");
+};
+</script>

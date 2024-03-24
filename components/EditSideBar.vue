@@ -8,10 +8,10 @@
           v-model="model.sections[i].title"
         />
         <button
-          class="flex-1 bg-red-500 rounded h-8 mx-2"
+          class="flex-1 bg-red-500 rounded h-8 mx-auto mx-4"
           @click="$emit('delParagraph', model.sections[i])"
         >
-          Del
+          刪除
         </button>
       </div>
     </div>
@@ -19,7 +19,7 @@
       @click="$emit('addParagraph')"
       class="bg-blue-600 px-3 py-2 rounded text-sm"
     >
-      Add Paragraph
+      新增段落
     </button>
   </div>
 </template>

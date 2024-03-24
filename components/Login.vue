@@ -1,10 +1,10 @@
 <template>
-  <h2 class="text-2xl font-bold mb-8">Login</h2>
+  <h2 class="text-2xl font-bold mb-8">登入</h2>
   <form id="loginForm">
     <div class="mb-4">
       <label for="loginEmail" class="block text-sm font-semibold mb-2"
-        >Username</label
-      >
+        >使用者名稱
+      </label>
       <input
         id="loginEmail"
         class="w-full p-2 rounded bg-gray-800 text-white"
@@ -18,7 +18,7 @@
     </div>
     <div class="mb-6">
       <label for="loginPassword" class="block text-sm font-semibold mb-2"
-        >Password</label
+        >密碼</label
       >
       <input
         type="password"
@@ -38,17 +38,18 @@
       :disabled="!pass"
       @click.prevent="Login"
     >
-      Login
+      登入
     </button>
   </form>
   <div class="mt-4">
     <p class="text-sm">
-      Don't have an account?
+      還沒有帳號？
+
       <a
         href="#"
         class="text-blue-400 hover:text-blue-300"
         @click="$emit('toggleLogin')"
-        >Register</a
+        >註冊</a
       >
     </p>
   </div>
@@ -61,7 +62,7 @@ import type { Rules } from "async-validator";
 const rules: Rules = {
   username: {
     type: "string",
-    min: 5,
+    min: 2,
     required: true,
   },
   password: {
@@ -80,7 +81,7 @@ type JWT_Response = {
 };
 const Login = async () => {
   try {
-    const { access, refresh } = (await $fetch("/token/", {
+    const { access, refresh } = (await $fetch("/v1/token/", {
       method: "POST",
       body: {
         ...user_info,
