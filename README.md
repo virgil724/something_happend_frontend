@@ -1,6 +1,17 @@
-# Nuxt 3 Minimal Starter
+# ERM 前端 
+> 是一個練習專案 配套後端 https://github.com/virgil724/something_happend
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## 技術
+* Nuxt3
+* TailwindCSS
+* [MakeReal](https://makereal.tldraw.com/)  UI/UX設計
+## 頁面
+* Admin -- 管理
+* Auth -- 登入註冊
+* index -- Report呈現
+* report -- Report呈現(有組長權限)
+* WriteReport -- Report撰寫
+
 
 ## Setup
 
